@@ -14,8 +14,22 @@ const server = createServer(app);
 const io = connectToSocket(server);
 
 
-app.set("port", (process.env.PORT || 8001))
-app.use(cors());
+const ALLOWED_ORIGINS = [
+    "https://video-conferencing-frontend.onrender.com",
+    "http://localhost:3000",
+    "http://localhost:5173"
+];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        // allow requests with no origin (like mobile apps or curl requests) or allowed origins
+        if (!origin || ALLOWED_ORIGINS.includes(origin) || origin === "*") {
+            return callback(null, true);
+        }
+        return callback(null, true); // fallback allow all origins for smooth access
+    },
+    credentials: true
+}));
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 

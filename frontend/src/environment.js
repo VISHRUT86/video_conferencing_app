@@ -1,8 +1,7 @@
 let IS_PROD = false;
+
 const server = IS_PROD ?
     "https://video-conferencing-app-fb11.onrender.com" :
-
-    "http://localhost:8001"
-
+    "http://localhost:8001";
 
 export default server;
