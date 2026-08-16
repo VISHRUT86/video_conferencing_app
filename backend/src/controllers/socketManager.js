@@ -9,7 +9,7 @@ export const connectToSocket = (server) => {
     const io = new Server(server, {
         cors: {
             origin: [
-                "https://video-conferencing-frontend.onrender.com"
+                "https://video-conferencing-frontend-fzy6.onrender.com"
                
             ],
             methods: ["GET", "POST"],
