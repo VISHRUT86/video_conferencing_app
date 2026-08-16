@@ -15,9 +15,7 @@ const io = connectToSocket(server);
 
 
 const ALLOWED_ORIGINS = [
-    "https://video-conferencing-frontend.onrender.com",
-    "http://localhost:3000",
-    "http://localhost:5173"
+    "https://video-conferencing-frontend-fzy6.onrender.com"
 ];
 
 app.use(cors({
@@ -41,7 +39,7 @@ const start = async () => {
 
     console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
     server.listen(app.get("port"), () => {
-        console.log("LISTENIN ON PORT 8001")
+        console.log("SERVER IS LISTENING ")
     });
 
 
