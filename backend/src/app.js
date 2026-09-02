@@ -48,6 +48,7 @@ const start = async () => {
         });
 
     } catch (error) {
+         console.error("DATABASE ERROR:");
         console.error("Database connection failed:", error);
         process.exit(1);
     }
