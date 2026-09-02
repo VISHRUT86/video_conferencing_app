@@ -1,0 +1,691 @@
+/* =========================
+   HISTORY PAGE
+========================= */
+
+.historyPage {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(255, 125, 20, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 100%,
+            rgba(255, 125, 20, 0.1),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #090909,
+            #111113 55%,
+            #17110c
+        );
+
+    color: white;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.historyGlow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(130px);
+    pointer-events: none;
+}
+
+
+.historyGlowOne {
+    width: 400px;
+    height: 400px;
+
+    top: -200px;
+    left: -150px;
+
+    background:
+        rgba(255, 120, 20, 0.1);
+}
+
+
+.historyGlowTwo {
+    width: 500px;
+    height: 500px;
+
+    bottom: -250px;
+    right: -200px;
+
+    background:
+        rgba(255, 130, 30, 0.08);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.historyNavbar {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1400px;
+    margin: auto;
+
+    padding: 22px 7%;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+
+.historyBrand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+}
+
+
+.historyBrandIcon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9b3d,
+            #ff7200
+        );
+
+    font-size: 20px;
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 130, 30, 0.25);
+}
+
+
+.historyBrand h2 {
+    margin: 0;
+
+    font-size: 24px;
+}
+
+
+.historyBrand p {
+    margin: 2px 0 0;
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+.backDashboardButton {
+    border: none;
+    cursor: pointer;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    color: #d5d5d5;
+
+    font-size: 14px;
+
+    transition: 0.25s ease;
+}
+
+
+.backDashboardButton:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.historyContainer {
+    position: relative;
+    z-index: 3;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding:
+        80px 7%;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.historyHeader {
+    max-width: 650px;
+}
+
+
+.historyBadge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        9px 15px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    color: #c7c7c7;
+
+    font-size: 14px;
+}
+
+
+.historyBadge span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #55e878;
+
+    box-shadow:
+        0 0 12px #55e878;
+}
+
+
+.historyHeader h1 {
+    margin:
+        25px 0 18px;
+
+    font-size:
+        clamp(
+            45px,
+            6vw,
+            72px
+        );
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+}
+
+
+.historyHeader h1 span {
+    background:
+        linear-gradient(
+            135deg,
+            #ff9b3d,
+            #ff7200
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+.historyHeader > p {
+    max-width: 560px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #888;
+}
+
+
+/* =========================
+   MEETING GRID
+========================= */
+
+.meetingHistoryGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 22px;
+
+    margin-top: 50px;
+}
+
+
+.meetingHistoryCard {
+    position: relative;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    backdrop-filter:
+        blur(20px);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.meetingHistoryCard:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255, 140, 40, 0.35);
+}
+
+
+.meetingCardTop {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.meetingNumber {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 130, 30, 0.1);
+
+    color: #ff9638;
+
+    font-weight: 700;
+}
+
+
+.meetingStatus {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.meetingStatus span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #55e878;
+
+    box-shadow:
+        0 0 10px #55e878;
+}
+
+
+.meetingCardContent {
+    margin-top: 28px;
+}
+
+
+.meetingCardContent p {
+    margin: 0 0 8px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+.meetingCardContent h3 {
+    margin: 0;
+
+    font-size: 20px;
+
+    letter-spacing: 0.3px;
+
+    word-break: break-all;
+}
+
+
+/* DATE */
+
+.meetingCardDate {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+
+.meetingCardDate > span {
+    font-size: 20px;
+}
+
+
+.meetingCardDate p {
+    margin: 0 0 4px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+.meetingCardDate strong {
+    font-size: 14px;
+
+    color: #d5d5d5;
+}
+
+
+/* REJOIN */
+
+.rejoinButton {
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9b3d,
+            #ff7200
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255, 120, 0, 0.16);
+}
+
+
+.rejoinButton:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(255, 120, 0, 0.28);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.emptyHistory {
+    margin-top: 50px;
+
+    max-width: 550px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.emptyHistoryIcon {
+    font-size: 45px;
+}
+
+
+.emptyHistory h2 {
+    margin-top: 18px;
+
+    font-size: 25px;
+}
+
+
+.emptyHistory p {
+    color: #888;
+
+    line-height: 1.6;
+}
+
+
+.emptyHistory button {
+    margin-top: 15px;
+
+    padding:
+        13px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9b3d,
+            #ff7200
+        );
+
+    color: white;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.historyState {
+    margin-top: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    color: #888;
+}
+
+
+.historyLoader {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border:
+        3px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-top-color:
+        #ff8a25;
+
+    animation:
+        historySpin 0.8s linear infinite;
+}
+
+
+@keyframes historySpin {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+/* ERROR */
+
+.historyError {
+    margin-top: 50px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 70, 70, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 70, 70, 0.15);
+
+    color: #ff9c9c;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .historyNavbar {
+        padding:
+            18px 20px;
+    }
+
+
+    .historyBrandIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .historyBrand h2 {
+        font-size: 20px;
+    }
+
+
+    .historyBrand p {
+        display: none;
+    }
+
+
+    .backDashboardButton {
+        padding:
+            10px 14px;
+
+        font-size: 12px;
+    }
+
+
+    .historyContainer {
+        padding:
+            55px 20px;
+    }
+
+
+    .historyHeader h1 {
+        font-size: 48px;
+    }
+
+
+    .meetingHistoryGrid {
+        margin-top: 35px;
+    }
+
+}
