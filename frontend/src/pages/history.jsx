@@ -11,7 +11,7 @@ export default function History() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    const routeTo = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchHistory = async () => {
@@ -23,14 +23,14 @@ export default function History() {
                 setMeetings(history || []);
             } catch (err) {
                 console.error(err);
-                setError("Unable to load your meeting history.");
+                setError("Unable to load meeting history.");
             } finally {
                 setLoading(false);
             }
         };
 
         fetchHistory();
-    }, [getHistoryOfUser]);
+    }, []);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -52,7 +52,7 @@ export default function History() {
     return (
         <div className="historyPage">
 
-            {/* Background Effects */}
+            {/* Background Glow */}
 
             <div className="historyGlow historyGlowOne"></div>
             <div className="historyGlow historyGlowTwo"></div>
@@ -64,24 +64,29 @@ export default function History() {
 
                 <div
                     className="historyBrand"
-                    onClick={() => routeTo("/home")}
+                    onClick={() => navigate("/home")}
                 >
+
                     <div className="historyBrandIcon">
                         J
                     </div>
 
                     <div>
                         <h2>JudoCall</h2>
-                        <p>Connect. Collaborate.</p>
+
+                        <p>
+                            Connect. Collaborate.
+                        </p>
                     </div>
+
                 </div>
 
 
                 <button
-                    className="backDashboardButton"
-                    onClick={() => routeTo("/home")}
+                    className="historyHomeButton"
+                    onClick={() => navigate("/home")}
                 >
-                    ← Back to dashboard
+                    ← Back to home
                 </button>
 
             </nav>
@@ -89,48 +94,81 @@ export default function History() {
 
             {/* MAIN */}
 
-            <main className="historyContainer">
+            <main className="historyMain">
 
                 <div className="historyHeader">
 
-                    <div className="historyBadge">
-                        <span></span>
-                        Meeting activity
+                    <div>
+
+                        <div className="historyBadge">
+
+                            <span></span>
+
+                            Meeting activity
+
+                        </div>
+
+
+                        <h1>
+                            Meeting
+                            <span> History.</span>
+                        </h1>
+
+
+                        <p>
+                            View and keep track of all your previous
+                            JudoCall meetings.
+                        </p>
+
                     </div>
 
-                    <h1>
-                        Your meeting
-                        <span> history.</span>
-                    </h1>
 
-                    <p>
-                        Keep track of all the meetings you've joined
-                        with JudoCall.
-                    </p>
+                    <div className="historyCount">
+
+                        <strong>
+                            {meetings.length}
+                        </strong>
+
+                        <span>
+                            Total meetings
+                        </span>
+
+                    </div>
 
                 </div>
 
 
-                {/* CONTENT */}
+                {/* ERROR */}
+
+                {error && (
+
+                    <div className="historyError">
+
+                        ⚠ {error}
+
+                    </div>
+
+                )}
+
+
+                {/* LOADING */}
 
                 {loading && (
 
-                    <div className="historyState">
+                    <div className="historyLoading">
+
                         <div className="historyLoader"></div>
-                        <p>Loading your meetings...</p>
+
+                        <p>
+                            Loading your meetings...
+                        </p>
+
                     </div>
 
                 )}
 
 
-                {!loading && error && (
-
-                    <div className="historyError">
-                        ⚠ {error}
-                    </div>
-
-                )}
-
+                {/* EMPTY STATE */}
 
                 {!loading &&
                     !error &&
@@ -142,19 +180,20 @@ export default function History() {
                                 🕘
                             </div>
 
-                            <h2>No meetings yet</h2>
+                            <h2>
+                                No meetings yet
+                            </h2>
 
                             <p>
                                 Your meeting history will appear here
-                                after you join a meeting.
+                                once you join a meeting.
                             </p>
 
+
                             <button
-                                onClick={() =>
-                                    routeTo("/home")
-                                }
+                                onClick={() => navigate("/home")}
                             >
-                                Join your first meeting →
+                                Start a meeting →
                             </button>
 
                         </div>
@@ -162,8 +201,9 @@ export default function History() {
                     )}
 
 
+                {/* MEETING GRID */}
+
                 {!loading &&
-                    !error &&
                     meetings.length > 0 && (
 
                         <div className="meetingHistoryGrid">
@@ -171,64 +211,71 @@ export default function History() {
                             {meetings.map((meeting, index) => (
 
                                 <div
-                                    className="meetingHistoryCard"
+                                    className="historyMeetingCard"
                                     key={index}
                                 >
 
                                     <div className="meetingCardTop">
 
+                                        <div className="meetingIcon">
+                                            🎥
+                                        </div>
+
+
                                         <div className="meetingNumber">
-                                            {String(
-                                                index + 1
-                                            ).padStart(2, "0")}
-                                        </div>
 
-                                        <div className="meetingStatus">
-                                            <span></span>
-                                            Joined
+                                            Meeting{" "}
+
+                                            {String(index + 1)
+                                                .padStart(2, "0")}
+
                                         </div>
 
                                     </div>
 
 
-                                    <div className="meetingCardContent">
+                                    <div className="meetingCodeSection">
 
-                                        <p>Meeting Code</p>
+                                        <span>
+                                            Meeting Code
+                                        </span>
 
-                                        <h3>
+                                        <h2>
                                             {meeting.meetingCode}
-                                        </h3>
+                                        </h2>
 
                                     </div>
 
 
-                                    <div className="meetingCardDate">
-
-                                        <span>📅</span>
+                                    <div className="meetingDateSection">
 
                                         <div>
-                                            <p>Date</p>
+
+                                            <span className="dateLabel">
+                                                📅 Date
+                                            </span>
 
                                             <strong>
                                                 {formatDate(
                                                     meeting.date
                                                 )}
                                             </strong>
+
                                         </div>
 
+
+                                        <button
+                                            className="rejoinButton"
+                                            onClick={() =>
+                                                navigate(
+                                                    `/${meeting.meetingCode}`
+                                                )
+                                            }
+                                        >
+                                            Join Again →
+                                        </button>
+
                                     </div>
-
-
-                                    <button
-                                        className="rejoinButton"
-                                        onClick={() =>
-                                            routeTo(
-                                                `/${meeting.meetingCode}`
-                                            )
-                                        }
-                                    >
-                                        Rejoin meeting →
-                                    </button>
 
                                 </div>
 

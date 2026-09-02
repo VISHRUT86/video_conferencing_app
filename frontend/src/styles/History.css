@@ -8,25 +8,25 @@
     position: relative;
     overflow-x: hidden;
 
+    color: white;
+
     background:
         radial-gradient(
-            circle at 10% 0%,
-            rgba(255, 125, 20, 0.14),
-            transparent 32%
+            circle at 8% 10%,
+            rgba(255, 120, 20, 0.14),
+            transparent 30%
         ),
         radial-gradient(
-            circle at 90% 100%,
-            rgba(255, 125, 20, 0.1),
+            circle at 90% 90%,
+            rgba(255, 120, 20, 0.1),
             transparent 35%
         ),
         linear-gradient(
             135deg,
-            #090909,
+            #090909 0%,
             #111113 55%,
-            #17110c
+            #17110c 100%
         );
-
-    color: white;
 }
 
 
@@ -36,21 +36,26 @@
 
 .historyGlow {
     position: fixed;
+
     border-radius: 50%;
-    filter: blur(130px);
+
+    filter: blur(120px);
+
     pointer-events: none;
+
+    z-index: 0;
 }
 
 
 .historyGlowOne {
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
 
-    top: -200px;
-    left: -150px;
+    top: -220px;
+    left: -180px;
 
     background:
-        rgba(255, 120, 20, 0.1);
+        rgba(255, 115, 20, 0.12);
 }
 
 
@@ -58,11 +63,11 @@
     width: 500px;
     height: 500px;
 
-    bottom: -250px;
     right: -200px;
+    bottom: -250px;
 
     background:
-        rgba(255, 130, 30, 0.08);
+        rgba(255, 130, 30, 0.1);
 }
 
 
@@ -72,25 +77,25 @@
 
 .historyNavbar {
     position: relative;
-    z-index: 5;
+
+    z-index: 10;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    max-width: 1400px;
-    margin: auto;
+    justify-content: space-between;
+    align-items: center;
 
     padding: 22px 7%;
 
     border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.08);
 }
 
 
 .historyBrand {
     display: flex;
+
     align-items: center;
 
     gap: 12px;
@@ -104,8 +109,9 @@
     height: 45px;
 
     display: flex;
-    align-items: center;
+
     justify-content: center;
+    align-items: center;
 
     border-radius: 14px;
 
@@ -116,12 +122,15 @@
             #ff7200
         );
 
+    color: white;
+
     font-size: 20px;
+
     font-weight: 700;
 
     box-shadow:
         0 10px 30px
-        rgba(255, 130, 30, 0.25);
+        rgba(255, 120, 20, 0.25);
 }
 
 
@@ -129,25 +138,33 @@
     margin: 0;
 
     font-size: 24px;
+
+    font-weight: 700;
 }
 
 
 .historyBrand p {
-    margin: 2px 0 0;
-
-    font-size: 12px;
+    margin: 3px 0 0;
 
     color: #777;
+
+    font-size: 12px;
 }
 
 
-.backDashboardButton {
+.historyHomeButton {
     border: none;
+
     cursor: pointer;
 
-    padding: 11px 18px;
+    padding:
+        12px 20px;
 
     border-radius: 12px;
+
+    color: #cfcfcf;
+
+    font-size: 14px;
 
     background:
         rgba(255, 255, 255, 0.04);
@@ -156,21 +173,19 @@
         1px solid
         rgba(255, 255, 255, 0.1);
 
-    color: #d5d5d5;
-
-    font-size: 14px;
-
-    transition: 0.25s ease;
+    transition:
+        0.25s ease;
 }
 
 
-.backDashboardButton:hover {
-    transform: translateY(-2px);
+.historyHomeButton:hover {
+    color: white;
+
+    transform:
+        translateY(-2px);
 
     background:
         rgba(255, 255, 255, 0.08);
-
-    color: white;
 }
 
 
@@ -178,16 +193,17 @@
    MAIN
 ========================= */
 
-.historyContainer {
+.historyMain {
     position: relative;
-    z-index: 3;
 
-    max-width: 1200px;
+    z-index: 2;
+
+    max-width: 1250px;
 
     margin: auto;
 
     padding:
-        80px 7%;
+        70px 7% 100px;
 }
 
 
@@ -196,7 +212,14 @@
 ========================= */
 
 .historyHeader {
-    max-width: 650px;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+
+    margin-bottom: 50px;
 }
 
 
@@ -212,16 +235,16 @@
 
     border-radius: 50px;
 
+    color: #c7c7c7;
+
+    font-size: 14px;
+
     background:
         rgba(255, 255, 255, 0.05);
 
     border:
         1px solid
         rgba(255, 255, 255, 0.1);
-
-    color: #c7c7c7;
-
-    font-size: 14px;
 }
 
 
@@ -234,17 +257,18 @@
     background: #55e878;
 
     box-shadow:
-        0 0 12px #55e878;
+        0 0 12px
+        #55e878;
 }
 
 
 .historyHeader h1 {
     margin:
-        25px 0 18px;
+        25px 0 15px;
 
     font-size:
         clamp(
-            45px,
+            48px,
             6vw,
             72px
         );
@@ -270,14 +294,62 @@
 }
 
 
-.historyHeader > p {
-    max-width: 560px;
+.historyHeader p {
+    max-width: 550px;
+
+    margin: 0;
+
+    color: #969696;
 
     font-size: 17px;
 
     line-height: 1.7;
+}
 
-    color: #888;
+
+/* =========================
+   MEETING COUNT
+========================= */
+
+.historyCount {
+    min-width: 150px;
+
+    padding:
+        22px 28px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+.historyCount strong {
+    display: block;
+
+    font-size: 32px;
+
+    color: #ff9130;
+}
+
+
+.historyCount span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 13px;
 }
 
 
@@ -295,23 +367,27 @@
         );
 
     gap: 22px;
-
-    margin-top: 50px;
 }
 
 
-.meetingHistoryCard {
+/* =========================
+   MEETING CARD
+========================= */
+
+.historyMeetingCard {
     position: relative;
 
-    padding: 25px;
+    padding: 24px;
 
     border-radius: 22px;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.02)
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.025)
         );
 
     border:
@@ -321,155 +397,184 @@
     backdrop-filter:
         blur(20px);
 
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
+
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
+        0.3s ease;
 }
 
 
-.meetingHistoryCard:hover {
+.historyMeetingCard::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff8a24,
+            transparent
+        );
+
+    opacity: 0;
+
+    transition:
+        0.3s ease;
+}
+
+
+.historyMeetingCard:hover {
     transform:
-        translateY(-5px);
+        translateY(-6px);
 
     border-color:
-        rgba(255, 140, 40, 0.35);
+        rgba(255, 140, 40, 0.3);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0, 0, 0, 0.4);
 }
 
+
+.historyMeetingCard:hover::before {
+    opacity: 1;
+}
+
+
+/* CARD TOP */
 
 .meetingCardTop {
     display: flex;
 
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.meetingIcon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
     align-items: center;
 
-    justify-content: space-between;
+    border-radius: 14px;
+
+    background:
+        rgba(255, 130, 30, 0.12);
+
+    font-size: 20px;
 }
 
 
 .meetingNumber {
-    width: 42px;
-    height: 42px;
+    color: #777;
 
-    display: flex;
+    font-size: 12px;
 
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 12px;
-
-    background:
-        rgba(255, 130, 30, 0.1);
-
-    color: #ff9638;
-
-    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 
-.meetingStatus {
-    display: flex;
+/* MEETING CODE */
 
-    align-items: center;
-
-    gap: 7px;
-
-    color: #888;
-
-    font-size: 13px;
-}
-
-
-.meetingStatus span {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #55e878;
-
-    box-shadow:
-        0 0 10px #55e878;
-}
-
-
-.meetingCardContent {
+.meetingCodeSection {
     margin-top: 28px;
 }
 
 
-.meetingCardContent p {
-    margin: 0 0 8px;
+.meetingCodeSection span {
+    display: block;
 
     color: #777;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    margin-bottom: 8px;
 }
 
 
-.meetingCardContent h3 {
+.meetingCodeSection h2 {
     margin: 0;
 
-    font-size: 20px;
+    color: white;
 
-    letter-spacing: 0.3px;
+    font-size: 24px;
 
-    word-break: break-all;
+    word-break: break-word;
+
+    letter-spacing: 0.5px;
 }
 
 
-/* DATE */
+/* DATE SECTION */
 
-.meetingCardDate {
+.meetingDateSection {
     display: flex;
 
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
 
-    gap: 12px;
+    gap: 15px;
 
-    margin-top: 25px;
+    margin-top: 30px;
 
     padding-top: 20px;
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.08);
 }
 
 
-.meetingCardDate > span {
-    font-size: 20px;
-}
-
-
-.meetingCardDate p {
-    margin: 0 0 4px;
+.dateLabel {
+    display: block;
 
     color: #777;
 
     font-size: 12px;
+
+    margin-bottom: 6px;
 }
 
 
-.meetingCardDate strong {
+.meetingDateSection strong {
+    color: #cfcfcf;
+
     font-size: 14px;
-
-    color: #d5d5d5;
 }
 
 
-/* REJOIN */
+/* JOIN AGAIN */
 
 .rejoinButton {
-    width: 100%;
-
-    margin-top: 24px;
-
-    padding: 13px;
-
     border: none;
 
-    border-radius: 12px;
-
     cursor: pointer;
+
+    padding:
+        10px 14px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
 
     background:
         linear-gradient(
@@ -478,17 +583,8 @@
             #ff7200
         );
 
-    color: white;
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    transition: 0.25s ease;
-
-    box-shadow:
-        0 10px 25px
-        rgba(255, 120, 0, 0.16);
+    transition:
+        0.25s ease;
 }
 
 
@@ -497,8 +593,8 @@
         translateY(-2px);
 
     box-shadow:
-        0 15px 30px
-        rgba(255, 120, 0, 0.28);
+        0 8px 25px
+        rgba(255, 120, 0, 0.3);
 }
 
 
@@ -507,11 +603,13 @@
 ========================= */
 
 .emptyHistory {
-    margin-top: 50px;
-
     max-width: 550px;
 
-    padding: 50px 30px;
+    margin:
+        60px auto;
+
+    padding:
+        60px 35px;
 
     text-align: center;
 
@@ -527,35 +625,56 @@
 
 
 .emptyHistoryIcon {
-    font-size: 45px;
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin:
+        0 auto 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 130, 30, 0.1);
+
+    font-size: 30px;
 }
 
 
 .emptyHistory h2 {
-    margin-top: 18px;
+    margin: 0;
 
-    font-size: 25px;
+    font-size: 24px;
 }
 
 
 .emptyHistory p {
-    color: #888;
+    color: #777;
 
     line-height: 1.6;
+
+    margin:
+        12px 0 25px;
 }
 
 
 .emptyHistory button {
-    margin-top: 15px;
+    border: none;
+
+    cursor: pointer;
 
     padding:
         13px 22px;
 
-    border: none;
-
     border-radius: 12px;
 
-    cursor: pointer;
+    color: white;
+
+    font-weight: 600;
 
     background:
         linear-gradient(
@@ -563,10 +682,6 @@
             #ff9b3d,
             #ff7200
         );
-
-    color: white;
-
-    font-weight: 600;
 }
 
 
@@ -574,24 +689,24 @@
    LOADING
 ========================= */
 
-.historyState {
-    margin-top: 70px;
-
+.historyLoading {
     display: flex;
 
     flex-direction: column;
 
+    justify-content: center;
     align-items: center;
 
-    gap: 18px;
+    padding:
+        100px 0;
 
-    color: #888;
+    color: #777;
 }
 
 
 .historyLoader {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 
     border-radius: 50%;
 
@@ -600,10 +715,15 @@
         rgba(255, 255, 255, 0.1);
 
     border-top-color:
-        #ff8a25;
+        #ff8a24;
 
     animation:
         historySpin 0.8s linear infinite;
+}
+
+
+.historyLoading p {
+    margin-top: 18px;
 }
 
 
@@ -617,14 +737,19 @@
 }
 
 
-/* ERROR */
+/* =========================
+   ERROR
+========================= */
 
 .historyError {
-    margin-top: 50px;
+    padding:
+        14px 18px;
 
-    padding: 16px;
+    margin-bottom: 25px;
 
     border-radius: 12px;
+
+    color: #ff9c9c;
 
     background:
         rgba(255, 70, 70, 0.08);
@@ -632,8 +757,6 @@
     border:
         1px solid
         rgba(255, 70, 70, 0.15);
-
-    color: #ff9c9c;
 }
 
 
@@ -641,7 +764,23 @@
    RESPONSIVE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+
+    .historyHeader {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .historyCount {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
 
     .historyNavbar {
         padding:
@@ -665,7 +804,7 @@
     }
 
 
-    .backDashboardButton {
+    .historyHomeButton {
         padding:
             10px 14px;
 
@@ -673,19 +812,39 @@
     }
 
 
-    .historyContainer {
+    .historyMain {
         padding:
-            55px 20px;
+            50px 20px 80px;
     }
 
 
     .historyHeader h1 {
-        font-size: 48px;
+        font-size: 50px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .historyHeader p {
+        font-size: 15px;
+    }
+
+
+    .meetingDateSection {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .rejoinButton {
+        width: 100%;
     }
 
 
     .meetingHistoryGrid {
-        margin-top: 35px;
+        grid-template-columns:
+            1fr;
     }
 
 }
