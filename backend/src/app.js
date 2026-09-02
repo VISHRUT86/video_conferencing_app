@@ -53,10 +53,10 @@ const start = async () => {
     }
 };
 
-start();
 
 
-}
+
+
 
 
 
