@@ -2,6 +2,7 @@ import * as React from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { Snackbar, Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import "../styles/Authentication.css";
 
 export default function Authentication() {
     const [username, setUsername] = React.useState("");
