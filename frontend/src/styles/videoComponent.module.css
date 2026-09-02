@@ -1,12 +1,17 @@
-/* ================================
+/* ========================================
    MAIN MEETING CONTAINER
-================================ */
+======================================== */
 
 .meetVideoContainer {
     position: relative;
+
     width: 100vw;
     height: 100vh;
+
     overflow: hidden;
+
+    color: white;
+
     background:
         radial-gradient(
             circle at top left,
@@ -22,91 +27,200 @@
 }
 
 
-/* ================================
-   LOCAL USER VIDEO
-================================ */
+/* ========================================
+   MEETING HEADER
+======================================== */
 
-.localVideoWrapper {
+.meetingHeader {
     position: fixed;
-    right: 40px;
-    bottom: 115px;
 
-    width: 310px;
-    height: 175px;
+    top: 0;
+    left: 0;
 
-    z-index: 10;
-
-    border-radius: 22px;
-
-    transition: right 0.3s ease,
-                width 0.3s ease;
-}
-
-
-/* When chat opens, move video left */
-
-.chatOpen .localVideoWrapper {
-    right: 400px;
-}
-
-
-/* Local Video */
-
-.meetUserVideo {
     width: 100%;
-    height: 100%;
+    height: 80px;
 
-    object-fit: cover;
+    z-index: 20;
 
-    border-radius: 22px;
+    display: flex;
 
-    border: 2px solid rgba(255, 136, 31, 0.8);
+    align-items: center;
+    justify-content: space-between;
 
-    background: #000;
+    padding: 0 40px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(18, 19, 24, 0.92);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+/* BRAND */
+
+.meetingBrand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brandIcon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d3d,
+            #ff7418
+        );
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(255, 136, 31, 0.12);
+        0 10px 25px
+        rgba(255, 120, 30, 0.25);
 }
 
 
-/* You label */
+.meetingBrand h2 {
+    margin: 0;
 
-.youLabel {
-    position: absolute;
+    font-size: 20px;
 
-    left: 16px;
-    bottom: 14px;
+    font-weight: 700;
+}
 
-    padding: 7px 14px;
 
-    color: white;
+.meetingBrand span {
+    display: block;
 
-    background: rgba(20, 20, 25, 0.85);
+    margin-top: 3px;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+
+    color: #8d8f98;
+}
+
+
+/* LIVE STATUS */
+
+.meetingStatus {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 15px;
 
     border-radius: 20px;
 
-    font-size: 14px;
-    font-weight: 600;
+    color: #bfc2ca;
 
-    backdrop-filter: blur(8px);
+    font-size: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 }
 
 
-/* ================================
-   REMOTE VIDEOS
-================================ */
+.meetingStatus span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #55e878;
+
+    box-shadow:
+        0 0 10px
+        #55e878;
+}
+
+
+/* PARTICIPANT INFO */
+
+.participantInfo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        9px 14px;
+
+    border-radius: 12px;
+
+    color: #d8d9df;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.participantInfo svg {
+    font-size: 18px;
+}
+
+
+/* ========================================
+   VIDEO AREA
+======================================== */
+
+.videoArea {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding-top: 80px;
+
+    box-sizing: border-box;
+
+    transition:
+        width 0.3s ease;
+}
+
+
+/* ========================================
+   REMOTE VIDEO AREA
+======================================== */
 
 .conferenceView {
     position: absolute;
 
-    top: 90px;
+    top: 80px;
     left: 0;
 
     width: 100%;
-    height: calc(100% - 90px);
+
+    height:
+        calc(100vh - 80px);
 
     display: flex;
 
@@ -117,126 +231,265 @@
 
     gap: 20px;
 
-    padding: 30px;
-
-    padding-bottom: 140px;
+    padding:
+        30px 30px 150px;
 
     box-sizing: border-box;
+
+    transition:
+        width 0.3s ease;
 }
 
 
-/* Remote Video Card */
+/* REMOTE VIDEO CARD */
 
-.conferenceView > div {
+.remoteVideoCard {
     position: relative;
 
     min-width: 300px;
 
-    max-width: 700px;
+    max-width: 900px;
+
+    min-height: 300px;
 
     flex: 1;
 
-    border-radius: 20px;
+    border-radius: 22px;
 
     overflow: hidden;
 
     background: #17181d;
 
-    border: 1px solid #292b33;
+    border:
+        1px solid #292b33;
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.3);
+        0 15px 40px
+        rgba(0, 0, 0, 0.35);
 }
 
 
-/* Remote Video */
+/* REMOTE VIDEO */
 
-.conferenceView video {
+.remoteVideoCard video {
     width: 100%;
-
     height: 100%;
+
+    display: block;
 
     object-fit: cover;
 
-    display: block;
+    background: #000;
 }
 
 
-/* ================================
+/* ========================================
+   LOCAL USER VIDEO
+======================================== */
+
+.localVideoWrapper {
+    position: fixed;
+
+    right: 40px;
+    bottom: 115px;
+
+    width: 310px;
+    height: 175px;
+
+    z-index: 25;
+
+    border-radius: 22px;
+
+    transition:
+        right 0.3s ease,
+        width 0.3s ease;
+}
+
+
+/* IMPORTANT:
+   CHAT OPEN -> VIDEO MOVES LEFT
+*/
+
+.chatOpen .localVideoWrapper {
+    right: 400px;
+}
+
+
+/* LOCAL VIDEO */
+
+.meetUserVideo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    border:
+        2px solid
+        rgba(255, 136, 31, 0.8);
+
+    background: #000;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.5),
+
+        0 0 20px
+        rgba(255, 136, 31, 0.12);
+}
+
+
+/* YOU LABEL */
+
+.localVideoName {
+    position: absolute;
+
+    left: 14px;
+    bottom: 14px;
+
+    padding:
+        7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: white;
+
+    background:
+        rgba(15, 15, 18, 0.82);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* ========================================
+   CHAT OPEN ADJUSTMENT
+======================================== */
+
+.chatOpen .conferenceView {
+    width:
+        calc(100% - 360px);
+}
+
+
+/* ========================================
    CHAT PANEL
-================================ */
+======================================== */
 
 .chatRoom {
     position: fixed;
 
-    top: 90px;
+    top: 80px;
     right: 0;
 
     width: 360px;
 
-    height: calc(100vh - 90px);
+    height:
+        calc(100vh - 80px);
 
     z-index: 30;
-
-    background: #17181d;
-
-    border-left: 1px solid #30313a;
-
-    box-shadow:
-        -10px 0 40px rgba(0, 0, 0, 0.35);
-
-    animation: slideIn 0.3s ease;
-
-    box-sizing: border-box;
-}
-
-
-/* Chat Container */
-
-.chatContainer {
-    height: 100%;
 
     display: flex;
 
     flex-direction: column;
 
-    padding: 20px;
+    background: #17181d;
+
+    border-left:
+        1px solid #30313a;
+
+    box-shadow:
+        -10px 0 40px
+        rgba(0, 0, 0, 0.4);
+
+    animation:
+        slideIn 0.3s ease;
 
     box-sizing: border-box;
 }
 
 
-/* Chat Title */
+/* ========================================
+   CHAT HEADER
+======================================== */
 
-.chatContainer h1 {
-    margin: 0;
+.chatHeader {
+    display: flex;
 
-    padding-bottom: 20px;
+    align-items: center;
 
-    color: #ffffff;
+    justify-content: space-between;
 
-    font-size: 24px;
+    padding: 20px;
 
-    border-bottom: 1px solid #30313a;
+    border-bottom:
+        1px solid #30313a;
 }
 
 
-/* ================================
+.chatHeader h3 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: white;
+}
+
+
+.chatHeader span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 12px;
+
+    color: #8d8f98;
+}
+
+
+.chatHeader :global(.MuiIconButton-root) {
+    color: #a7a9b0;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+}
+
+
+.chatHeader :global(.MuiIconButton-root:hover) {
+    color: white;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* ========================================
    CHAT MESSAGES
-================================ */
+======================================== */
 
 .chattingDisplay {
     flex: 1;
 
     overflow-y: auto;
 
-    padding: 20px 5px;
+    padding: 20px;
 
     color: white;
 }
 
 
-/* Scrollbar */
+/* SCROLLBAR */
 
 .chattingDisplay::-webkit-scrollbar {
     width: 6px;
@@ -255,61 +508,81 @@
 }
 
 
-/* Individual Message */
+/* MESSAGE ITEM */
 
-.chattingDisplay > div {
-    margin-bottom: 18px;
+.messageItem {
+    margin-bottom: 15px;
 
-    padding: 12px;
+    padding: 13px;
 
     background: #22232a;
 
-    border: 1px solid #30313a;
+    border:
+        1px solid #30313a;
 
-    border-radius: 12px;
+    border-radius: 14px;
 }
 
 
-/* Sender */
+.messageItem strong {
+    display: block;
 
-.chattingDisplay p:first-child {
-    margin: 0 0 6px 0;
+    margin-bottom: 6px;
 
     color: #ff922f;
-
-    font-weight: 700;
 
     font-size: 13px;
 }
 
 
-/* Message */
-
-.chattingDisplay p:last-child {
+.messageItem p {
     margin: 0;
 
     color: #d8d8dc;
 
     font-size: 14px;
 
+    line-height: 1.5;
+
     word-break: break-word;
 }
 
 
-/* No Messages */
+/* EMPTY CHAT */
 
-.chattingDisplay > p {
-    text-align: center;
+.emptyChat {
+    height: 100%;
 
-    margin-top: 60px;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 
     color: #777a85;
+
+    gap: 10px;
 }
 
 
-/* ================================
-   MESSAGE INPUT
-================================ */
+.emptyChat svg {
+    font-size: 45px;
+
+    color: #4a4c56;
+}
+
+
+.emptyChat p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   CHAT INPUT
+======================================== */
 
 .chattingArea {
     display: flex;
@@ -318,9 +591,10 @@
 
     gap: 10px;
 
-    padding-top: 15px;
+    padding: 15px 20px 20px;
 
-    border-top: 1px solid #30313a;
+    border-top:
+        1px solid #30313a;
 }
 
 
@@ -329,17 +603,12 @@
 }
 
 
-.chattingArea :global(.MuiInputBase-root) {
+.chattingArea :global(.MuiOutlinedInput-root) {
     color: white;
 
     background: #202127;
 
-    border-radius: 10px;
-}
-
-
-.chattingArea :global(.MuiInputLabel-root) {
-    color: #8e919b;
+    border-radius: 12px;
 }
 
 
@@ -348,90 +617,163 @@
 }
 
 
-.chattingArea :global(.MuiButton-root) {
-    background: linear-gradient(
-        135deg,
-        #ff9d3d,
-        #ff7a18
-    );
-
-    color: white;
-
-    padding: 11px 18px;
-
-    border-radius: 10px;
-
-    font-weight: 600;
-
-    text-transform: none;
+.chattingArea :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline) {
+    border-color: #555863;
 }
 
 
-.chattingArea :global(.MuiButton-root:hover) {
-    background: linear-gradient(
-        135deg,
-        #ffad56,
-        #ff862b
-    );
+.chattingArea :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline) {
+    border-color: #ff7a18;
 }
 
 
-/* ================================
-   BOTTOM CONTROL BUTTONS
-================================ */
+.sendButton {
+    width: 48px !important;
+    height: 48px !important;
+
+    color: white !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d3d,
+            #ff7418
+        ) !important;
+
+    border-radius: 12px !important;
+}
+
+
+.sendButton:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffad56,
+            #ff862b
+        ) !important;
+}
+
+
+/* ========================================
+   CONTROL BAR
+======================================== */
 
 .buttonContainers {
     position: fixed;
 
     left: 50%;
-    bottom: 35px;
+    bottom: 30px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
 
     align-items: center;
 
-    gap: 14px;
+    gap: 12px;
 
-    padding: 14px 18px;
+    padding:
+        12px 16px;
 
     z-index: 40;
 
-    background: rgba(25, 26, 32, 0.92);
+    background:
+        rgba(25, 26, 32, 0.94);
 
-    border: 1px solid #343640;
+    border:
+        1px solid #343640;
 
     border-radius: 24px;
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(15px);
 
     box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.4);
+        0 15px 40px
+        rgba(0, 0, 0, 0.45);
 }
 
 
-/* Control Buttons */
+/* NORMAL BUTTON */
 
-.buttonContainers :global(.MuiIconButton-root) {
-    width: 58px;
+.controlButton {
+    width: 54px !important;
+    height: 54px !important;
 
-    height: 58px;
+    color: white !important;
 
-    background: #292b33;
+    background:
+        #292b33 !important;
 
-    transition: all 0.2s ease;
+    transition:
+        all 0.2s ease !important;
 }
 
 
-.buttonContainers :global(.MuiIconButton-root:hover) {
-    background: #383a44;
+.controlButton:hover {
+    background:
+        #383a44 !important;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 
-/* Badge */
+/* CAMERA / MIC OFF */
+
+.controlButtonOff {
+    width: 54px !important;
+    height: 54px !important;
+
+    color: #ff7b7b !important;
+
+    background:
+        rgba(255, 70, 70, 0.15) !important;
+}
+
+
+/* SCREEN SHARE ACTIVE */
+
+.controlButtonActive {
+    width: 54px !important;
+    height: 54px !important;
+
+    color: white !important;
+
+    background:
+        #ff7a18 !important;
+}
+
+
+/* END CALL */
+
+.endCallButton {
+    width: 54px !important;
+    height: 54px !important;
+
+    color: white !important;
+
+    background:
+        #e53935 !important;
+
+    margin-left: 4px !important;
+}
+
+
+.endCallButton:hover {
+    background:
+        #f44336 !important;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* BADGE */
 
 .buttonContainers :global(.MuiBadge-badge) {
     background: #ff7a18;
@@ -440,45 +782,276 @@
 }
 
 
-/* ================================
-   CHAT OPEN ADJUSTMENTS
-================================ */
+/* ========================================
+   LOBBY PAGE
+======================================== */
 
-/*
-   When chat opens, keep the
-   conference area away from chat
-*/
+.lobbyPage {
+    position: relative;
 
-.chatOpen .conferenceView {
-    width: calc(100% - 360px);
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 119, 31, 0.15),
+            transparent 30%
+        ),
+        #0f1015;
 }
 
 
-/* ================================
-   ANIMATIONS
-================================ */
+.lobbyGlow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 119, 31, 0.08);
+
+    filter:
+        blur(100px);
+
+    pointer-events: none;
+}
+
+
+.lobbyCard {
+    position: relative;
+
+    z-index: 2;
+
+    width: 430px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        rgba(25, 26, 32, 0.9);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+.lobbyIcon {
+    width: 60px;
+    height: 60px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d3d,
+            #ff7418
+        );
+}
+
+
+.lobbyBadge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 14px;
+
+    border-radius: 20px;
+
+    color: #bfc2ca;
+
+    font-size: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+}
+
+
+.lobbyBadge span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #55e878;
+}
+
+
+.lobbyCard h1 {
+    margin:
+        22px 0 12px;
+
+    font-size: 38px;
+
+    color: white;
+}
+
+
+.lobbyCard h1 span {
+    color: #ff8b2c;
+}
+
+
+.lobbyCard > p {
+    margin-bottom: 25px;
+
+    color: #90929b;
+
+    line-height: 1.6;
+}
+
+
+.lobbyCard :global(.MuiOutlinedInput-root) {
+    color: white;
+
+    background: #202127;
+
+    border-radius: 12px;
+}
+
+
+.lobbyCard :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: #383a44;
+}
+
+
+.inputIcon {
+    margin-right: 8px;
+
+    color: #8d8f98;
+}
+
+
+.joinLobbyButton {
+    width: 100%;
+
+    margin-top: 15px !important;
+
+    padding:
+        13px !important;
+
+    color: white !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d3d,
+            #ff7418
+        ) !important;
+
+    border-radius: 12px !important;
+
+    font-weight: 600 !important;
+
+    text-transform: none !important;
+}
+
+
+.lobbyPreview {
+    width: 100%;
+
+    height: 180px;
+
+    margin-top: 25px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #000;
+
+    border:
+        1px solid #30313a;
+}
+
+
+.lobbyPreview video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   ANIMATION
+======================================== */
 
 @keyframes slideIn {
+
     from {
-        transform: translateX(100%);
+
+        transform:
+            translateX(100%);
+
         opacity: 0;
+
     }
 
     to {
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
+
         opacity: 1;
+
     }
+
 }
 
 
-/* ================================
-   RESPONSIVE DESIGN
-================================ */
+/* ========================================
+   TABLET
+======================================== */
 
 @media screen and (max-width: 900px) {
 
+    .meetingHeader {
+        padding:
+            0 20px;
+    }
+
+
     .chatRoom {
         width: 320px;
+    }
+
+
+    .chatOpen .conferenceView {
+        width:
+            calc(100% - 320px);
     }
 
 
@@ -487,24 +1060,64 @@
     }
 
 
-    .chatOpen .conferenceView {
-        width: calc(100% - 320px);
+    .localVideoWrapper {
+        width: 240px;
+        height: 135px;
     }
 
 
-    .localVideoWrapper {
-        width: 240px;
-
-        height: 135px;
+    .conferenceView {
+        padding:
+            20px 20px 140px;
     }
 
 }
 
 
+/* ========================================
+   MOBILE
+======================================== */
+
 @media screen and (max-width: 650px) {
 
+    .meetingHeader {
+        height: 70px;
+
+        padding:
+            0 15px;
+    }
+
+
+    .meetingBrand span,
+    .meetingStatus {
+        display: none;
+    }
+
+
+    .conferenceView {
+        top: 70px;
+
+        height:
+            calc(100vh - 70px);
+
+        padding:
+            15px 10px 130px;
+    }
+
+
+    .remoteVideoCard {
+        min-width: 100%;
+    }
+
+
     .chatRoom {
+        top: 0;
+
         width: 100%;
+
+        height: 100vh;
+
+        z-index: 60;
     }
 
 
@@ -520,28 +1133,44 @@
 
     .localVideoWrapper {
         width: 180px;
-
         height: 105px;
 
         right: 20px;
-
-        bottom: 110px;
+        bottom: 105px;
     }
 
 
     .buttonContainers {
-        bottom: 20px;
+        width:
+            calc(100% - 30px);
 
-        gap: 8px;
+        justify-content: center;
 
-        padding: 10px;
+        bottom: 15px;
+
+        gap: 6px;
+
+        padding:
+            8px;
     }
 
 
-    .buttonContainers :global(.MuiIconButton-root) {
-        width: 48px;
+    .controlButton,
+    .controlButtonOff,
+    .controlButtonActive,
+    .endCallButton {
+        width: 46px !important;
+        height: 46px !important;
+    }
 
-        height: 48px;
+
+    .lobbyCard {
+        width:
+            calc(100% - 40px);
+
+        padding: 25px;
+
+        box-sizing: border-box;
     }
 
 }
