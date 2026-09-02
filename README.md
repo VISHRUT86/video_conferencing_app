@@ -2,7 +2,7 @@
 
 A full-stack, real-time video conferencing web application inspired by Zoom and Google Meet. Built using **React**, **Node.js**, **Express**, **Socket.io**, **WebRTC**, and **MongoDB**.
 
-🌐⚡ **Live Demo**: [Live Demo](https://video-conferencing-frontend-fzy6.onrender.com) 
+🌐⚡ **Live Demo**: [Judo Call](https://video-conferencing-frontend-fzy6.onrender.com) 
 
 
 ---
