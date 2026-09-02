@@ -3,7 +3,7 @@ import withAuth from "../utils/withAuth";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
-import "./Home.css";
+import "../styles/Home.css";
 
 function HomeComponent() {
     const navigate = useNavigate();
